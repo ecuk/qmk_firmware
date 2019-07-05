@@ -201,8 +201,8 @@ uint32_t processQwerty(bool lookup) {
 /* Letters
  * ,-----------------------------------,    ,-----------------------------------,
  * |     |  Q  |  W  |  F  |  P  |  B  |    |  J  |  L  |  U  |  Y  |  ;  | ctl |
- * +-----+- A -+- R -+- S -+- T -+- G -|    |- M -+- N -+- E -+- I -+- O -+-----|
- * | bsp |  Z  |  X  |  C  |  D  |  V  |    |  K  |  H  |  ,  |  .  |  /  | del |
+ * +-----+- A -+- R -+- S -+- T -+- G -|    |- K -+- N -+- E -+- I -+- O -+-----|
+ * | bsp |  Z  |  X  |  C  |  D  |  V  |    |  M  |  H  |  ,  |  .  |  /  | del |
  * `-----+-----+-----+-----+-----+-----'    `-----+-----+-----+-----+-----+-----'
  *					   ,---------------,    .---------------.
  *					   | alt | ent|shfr|    | spc| gui| alt |
@@ -234,13 +234,13 @@ uint32_t processQwerty(bool lookup) {
 	P( RL,					SEND(KC_Y));
 	P( RT,					SEND(KC_SCLN));
 
-	P( ST3 | ST4,			SEND(KC_M));
+	P( ST3 | ST4,			SEND(KC_K));
 	P( RF  | RR,			SEND(KC_N));
 	P( RP  | RB,			SEND(KC_E));
 	P( RG  | RL,			SEND(KC_I));
 	P( RT  | RS,			SEND(KC_O));
 
-	P( ST4,					SEND(KC_K));
+	P( ST4,					SEND(KC_M));
 	P( RR,					SEND(KC_H));
 	P( RB,					SEND(KC_COMM));
 	P( RG,					SEND(KC_DOT));
@@ -283,15 +283,15 @@ uint32_t processQwerty(bool lookup) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	// Main layer, everything goes through here
 	[STENO_LAYER] = LAYOUT_georgi(
-			STN_FN,  STN_S1,  STN_TL,  STN_PL,	STN_HL,  STN_ST1,		STN_ST3, STN_FR,  STN_PR,  STN_LR,	STN_TR,  STN_DR,
-			STN_PWR, STN_S2,  STN_KL,  STN_WL,	STN_RL,  STN_ST2,		STN_ST4, STN_RR,  STN_BR,  STN_GR,	STN_SR,  STN_ZR,
-								   STN_N1,		STN_A,	 STN_O,			STN_E,	 STN_U,   STN_N7
+		STN_FN,  STN_S1,  STN_TL,  STN_PL,	STN_HL,  STN_ST1,		STN_ST3, STN_FR,  STN_PR,  STN_LR,	STN_TR,  STN_DR,
+		STN_PWR, STN_S2,  STN_KL,  STN_WL,	STN_RL,  STN_ST2,		STN_ST4, STN_RR,  STN_BR,  STN_GR,	STN_SR,  STN_ZR,
+								   STN_N1,	STN_A,	 STN_O,			STN_E,	 STN_U,   STN_N7
 	),
 	// Gaming layer with Numpad, Very limited
 	[GAMING] = LAYOUT_georgi(
-		KC_LSFT, KC_Q,	  KC_W,    KC_F,	KC_P,	 KC_B,						 KC_J,	  KC_L,    KC_U,	KC_Y,	 KC_SCLN, KC_ENT,
-		KC_LCTL, KC_A,	  KC_R,    KC_S,	KC_T,	 KC_G,						 KC_K,	  KC_N,    KC_E,	KC_I,	 KC_O,    KC_DQUO,
-								   KC_LALT, KC_SPC,  LT(GAMING_2, KC_ENT),		 KC_DEL,  KC_ASTR, TO(STENO_LAYER)
+		KC_LSFT, KC_Q,	  KC_W,    KC_F,	KC_P,	 KC_B,					  KC_J,	  KC_L,    KC_U,	KC_Y,	 KC_SCLN, KC_ENT,
+		KC_LCTL, KC_A,	  KC_R,    KC_S,	KC_T,	 KC_G,					  KC_K,	  KC_N,    KC_E,	KC_I,	 KC_O,    KC_DQUO,
+								   KC_LALT, KC_SPC,  LT(GAMING_2, KC_ENT),	  KC_DEL, KC_ASTR, TO(STENO_LAYER)
 	),
 
 	[GAMING_2] = LAYOUT_georgi(
